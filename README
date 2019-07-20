@@ -1,0 +1,17 @@
+1、各Python文件的内容及作用：
+（1）utils：包含各个函数，分别应用于接下来的文件中。
+（2）factors_pool：包含全部需要计算的因子，用于下一个文件的因子封装。
+（3）factor_encapsulation_frame:因子封装函数，生成的结果为格式如[股票代码，日期，因子1，因子2，……]的csv文件。
+（4）T_IC：获取T值和IC值，生成结果为格式如[因子名称，'|t|均值','|t|>2占比','因子收益率序列平均值','因子收益率
+           序列t检验','|t|均值/t标准差','IC序列均值','|IC|均值','IC序列标准差','IR比率','IC>0占比','|IC|>0.02
+           占比']的csv文件。
+（5）univ_industry：生成股池和行业成分股，直接将得到的结果返回给five_quantile_test中的函数。
+（6）five_quantile_test：生成用于五分位测试的csv文件，每个因子建立一个以因子名命名的文件夹，每个文件夹中包含五个
+                         csv文件，str(fac)_holdinglist,str(fac)_industrylist,str(fac)_holding,str(fac)_neu_weights,
+                         str(fac)_neu_sum。
+2、使用顺序
+（1）获取T和IC值的部分：进入T_IC文件，在文件下方调整参数，点击运行即可。
+（2）获取因子封装的csv部分：进入factor_encapsulation_frame文件，调整下方参数，点击运行即可
+（3）五分位回测部分：进入five_quantile_test文件，调整参数，点击运行即可。(univ_industry文件生成股池和行业成分股直接
+                      在five_quantile_test文件中以函数的形式被调用)之后将生成的csv文件上传到优矿平台，选择final五分
+                      位文件，调整参数和前方参数一致，依次点击运行，直至最后一个代码块产生图像。
